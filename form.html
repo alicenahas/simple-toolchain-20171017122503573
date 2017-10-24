@@ -567,6 +567,26 @@
 
     <!-- Custom scripts for this template -->
     <script src="js/freelancer.min.js"></script>
+    
+    
+    <script>
+        $(function(){
+          var activeBG = 'bg-warning',
+              normalBG = 'bg-white';
+
+          function changeColor(elements, oldColor, newColor){
+            elements.removeClass(oldColor).addClass(newColor);
+          }
+
+          $('.btn-group .btn').click(function() {
+            // Reset all elements from button group.
+            changeColor($(this).siblings(), activeBG, normalBG);
+
+            // Change the color for the current element and all previous items.
+            changeColor($(this).prevAll().addBack(), normalBG, activeBG);
+          });
+        });
+    </script> 
 
   </body>
 
